@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useSelector } from 'react-redux';
 import styles from './form.module.css';
 import commonStyles from "@/app/page.module.css";
 
@@ -10,8 +11,19 @@ export default function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const users = useSelector((state) => state.users);
+
   const handleLogin = () => {
-    console.log('Logging in with:', { email, password });
+    const matchedUser = users.find(
+      (user) => user.email === email && user.password === password
+    );
+
+    if (matchedUser) {
+      console.log('Login successful for:', matchedUser.username);
+      router.push('/notes');
+    } else {
+      alert('Invalid email or password');
+    }
   };
 
   const handleRegister = () => {

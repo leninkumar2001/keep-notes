@@ -2,11 +2,15 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useDispatch } from 'react-redux';
+import { addUser } from '@/app/slices/userSlice';
+
 import styles from './form.module.css';
 import commonStyles from '@/app/page.module.css';
 
 export default function LoginForm() {
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -16,8 +20,8 @@ export default function LoginForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!email || !password) {
-      alert('Email and password are required.');
+    if (!username || !email || !password) {
+      alert('All fields are required.');
       return;
     }
 
@@ -25,12 +29,10 @@ export default function LoginForm() {
       alert('Passwords do not match.');
       return;
     }
+    dispatch(addUser({ username, email, password }));
 
-    console.log('Logging in with:', { username, email, password });
-  };
-
-  const handleRegister = () => {
-    router.push('/register');
+    alert('Registered successfully!');
+    router.push('/login');
   };
 
   return (
@@ -74,15 +76,8 @@ export default function LoginForm() {
         />
 
         <div className={styles.buttonContainer}>
-          <button
-            type="button"
-            className={`${styles.button} ${styles.registerButton}`}
-            onClick={handleRegister}
-          >
+          <button type="submit" className={`${styles.button} ${styles.registerButton}`}>
             Register
-          </button>
-          <button type="submit" className={styles.button}>
-            Login
           </button>
         </div>
       </form>
