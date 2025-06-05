@@ -1,0 +1,14 @@
+.container{
+    width: 90%;
+    margin: 0 auto;
+}
+.breadcrumb{
+    padding: 15px 0;
+}
+.breadcrumb ul{
+    list-style: none;
+    gap: 5px;
+}
+.breadcrumb ul li:first-child{
+    text-decoration: underline;
+}
