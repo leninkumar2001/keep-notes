@@ -2,12 +2,14 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import styles from './form.module.css';
 import commonStyles from "@/app/page.module.css";
+import { setUsername } from '@/app/slices/loggedUser';
 
 export default function LoginForm() {
   const router = useRouter();
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -20,6 +22,9 @@ export default function LoginForm() {
 
     if (matchedUser) {
       console.log('Login successful for:', matchedUser.username);
+
+      dispatch(setUsername(matchedUser.username));
+
       router.push('/notes');
     } else {
       alert('Invalid email or password');
@@ -51,7 +56,10 @@ export default function LoginForm() {
         <button className={styles.button} onClick={handleLogin}>
           Login
         </button>
-        <button className={`${styles.button} ${styles.registerButton}`} onClick={handleRegister}>
+        <button
+          className={`${styles.button} ${styles.registerButton}`}
+          onClick={handleRegister}
+        >
           Sign up
         </button>
       </div>
