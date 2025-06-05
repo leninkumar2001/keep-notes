@@ -3,6 +3,19 @@
   background: #ffffff;
 }
 
+.height{
+  height: 100svh;
+}
+
+.fromContainer{
+  justify-content: center;
+}
+
+.container{
+    width: 90%;
+    margin: 0 auto;
+}
+
 .displayFlex{
   display: flex;
   align-items: center;

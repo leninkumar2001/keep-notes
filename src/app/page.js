@@ -1,6 +1,6 @@
 import styles from "./page.module.css";
-import Header from '@/app/components/header';
-import MainContent from '@/app/components/MainContent';
+import Header from '@/app/components/header/header';
+import MainContent from '@/app/components/body/breadcrums';
 
 export default function Home() {
   return (

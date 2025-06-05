@@ -1,18 +1,18 @@
-import "../styles/main.css";
+import "./main.css";
 import styles from "@/app/page.module.css";
 
-export default function MainContent(){
+export default function MainContent({page}){
     return(
         <>
-            <section className='container'>
+            <div className={styles.container}>
                 <nav className='breadcrumb' aria-label="breadcrumb">
                     <ul className={styles.displayFlex}>
                         <li><a href="/">Homepage</a></li>
                         <li>/</li>
-                        <li>Login</li>
+                        <li>{page}</li>
                     </ul>
                 </nav>
-            </section>
+            </div>
         </>
     );
 }
