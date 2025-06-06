@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addNote, updateNote } from '@/app/slices/createNote';
+import styles from './createNote.module.css';
 
 export default function CreateNoteForm({ onClose, editingNote }) {
   const [title, setTitle] = useState('');
@@ -12,6 +13,9 @@ export default function CreateNoteForm({ onClose, editingNote }) {
     if (editingNote) {
       setTitle(editingNote.title || '');
       setText(editingNote.text || '');
+    } else {
+      setTitle('');
+      setText('');
     }
   }, [editingNote]);
 
@@ -30,23 +34,39 @@ export default function CreateNoteForm({ onClose, editingNote }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        style={{ width: '100%', marginBottom: '8px', padding: '6px' }}
-      />
-      <textarea
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="Enter your note"
-        style={{ width: '100%', height: '100px', marginBottom: '10px', padding: '6px' }}
-      />
-      <button type="submit" style={{ padding: '8px 16px' }}>
-        {editingNote ? 'Update Note' : 'Add Note'}
+    <div className={styles.formContainer}>
+      <button className={styles.closeButton} onClick={onClose} aria-label="Close">
+        ✖
       </button>
-    </form>
+
+      <h3 className={styles.popupTitle}>
+        {editingNote ? 'Edit Note' : 'Add Note'}
+      </h3>
+
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          className={styles.inputField}
+        />
+        <textarea
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Enter your note"
+          className={styles.textarea}
+        />
+
+        <div className={styles.buttonGroup}>
+          <button type="button" className={styles.cancelButton} onClick={onClose}>
+            Cancel
+          </button>
+          <button type="submit" className={styles.submitButton}>
+            {editingNote ? 'Update' : 'Add'}
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }

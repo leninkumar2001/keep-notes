@@ -7,7 +7,7 @@ export default function MainContent({page}){
             <div className={styles.container}>
                 <nav className='breadcrumb' aria-label="breadcrumb">
                     <ul className={styles.displayFlex}>
-                        <li><a href="/">Homepage</a></li>
+                        <li><a href="/login">Homepage</a></li>
                         <li>/</li>
                         <li>{page}</li>
                     </ul>
