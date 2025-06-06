@@ -92,6 +92,7 @@ export default function Notes() {
           alt="Comments"
           width={25}
           height={25}
+          title='Add notes'
         />
       </div>
     </div>

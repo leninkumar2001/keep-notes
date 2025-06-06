@@ -9,3 +9,6 @@
 .breadcrumb ul li:first-child{
     text-decoration: underline;
 }
+.breadcrumb ul li:last-child{
+    font-weight: bold;
+}

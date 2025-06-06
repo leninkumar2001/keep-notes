@@ -1,5 +1,3 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
 ## Getting Started
 
 First, run the development server:
@@ -20,17 +18,50 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## dependencies used
+@reduxjs/toolkit: ^2.8.2
+next: 15.3.3"
+react: ^19.0.0"
+react-dom: ^19.0.0
+react-redux: ^9.2.0
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# 📝 Keep Notes App
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+A minimal, modern note-taking application built with **Next.js 14**, **Redux Toolkit**, and **CSS Modules**. Create, update, and delete notes in a clean UI with a pop-up editor.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Features
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+-Add, edit, and delete notes
+-Popup form for seamless note editing
+-State management via Redux Toolkit
+-Responsive design using CSS Modules
+-Auth-ready layout with login UI (stubbed)
+
+---
+
+## Tech Stack
+
+Framework: Next.js (App Router, Client Components)
+State Management: Redux Toolkit
+Styling: CSS Modules
+Icons: Emoji-based for simplicity
+
+---
+
+## Installation
+
+username: leninkumar2001
+email: leninkumar.ks2001@gmail.com
+token: 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
+
+git clone https://<username>:<token>@github.com/yourname/your-repo.git
+cd keep-notes-app
+npm install
+
+Note: Signup before logging in..
+
+
